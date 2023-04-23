@@ -4,18 +4,21 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AboutUsComponent } from '../component/about-us/about-us.component';
 import { HeaderComponent } from '../component/header/header.component';
 import { LoginComponent } from '../component/login/login.component';
 import { TodoComponent } from '../component/todo/todo.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AboutUsComponent } from '../component/about-us/about-us.component';
 
 const MATERIAL_MODULES = [
   MatButtonModule,
@@ -23,7 +26,10 @@ const MATERIAL_MODULES = [
   MatFormFieldModule,
   MatSnackBarModule,
   MatToolbarModule,
-  MatIconModule
+  MatIconModule,
+  MatCheckboxModule,
+  MatCardModule,
+  MatTableModule,
 ]
 @NgModule({
   declarations: [

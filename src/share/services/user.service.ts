@@ -13,7 +13,7 @@ export class UserService {
 
     constructor(private http: HttpClient) { }
 
-    public get(api: string, params?: IUser): Observable<IUser[]> {
+    public get(api: string, params?: Partial<IUser>): Observable<IUser[]> {
         var restApi = this.serverUrl + api;
         let options = createRequestOption(params);
         return this.http.get<IUser[]>(restApi, { params: options });

@@ -36,4 +36,9 @@ export class AuthService {
     checkLogin(): boolean {
         return !!sessionStorage.getItem(CONST_LOCALSTORAGE_KEY.AUTHENTICATED);
     }
+
+    public getUserLogin(): IUser[] {
+        const users = sessionStorage.getItem(CONST_LOCALSTORAGE_KEY.AUTHENTICATED);
+        return users ? JSON.parse(users) : [];
+    }
 }

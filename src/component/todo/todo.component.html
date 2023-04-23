@@ -1,1 +1,38 @@
 <app-header></app-header>
+<mat-card>
+    <mat-card-title>My To-Do List</mat-card-title>
+    <mat-card-content>
+        <mat-form-field class="new-todo">
+            <input matInput placeholder="Add Todo" [(ngModel)]="newTodoTitle" maxlength="250">
+        </mat-form-field>
+        <button mat-raised-button color="primary" class="btn-action" (click)="addITodo()">Submit</button>
+        <button *ngIf="todoEdited" mat-raised-button class="btn-action" color="secondary" (click)="clearModify()">Cancel</button>
+    </mat-card-content>
+    
+    <table mat-table [dataSource]="todoList" class="tbl-todo-list">
+        <ng-container matColumnDef="completed">
+            <th mat-header-cell *matHeaderCellDef>Completed</th>
+            <td mat-cell *matCellDef="let todoItem">
+                <mat-checkbox [(ngModel)]="todoItem.completed"></mat-checkbox>
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="title">
+            <th mat-header-cell *matHeaderCellDef>Title</th>
+            <td mat-cell *matCellDef="let todoItem" [ngClass]="{'completed': todoItem.completed}">{{todoItem.title}}</td>
+        </ng-container>
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef>Actions</th>
+            <td mat-cell *matCellDef="let todoItem">
+                <button mat-icon-button color="primary" (click)="modifyITodo(todoItem)">
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-icon-button color="warn" (click)="removeITodo(todoItem)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-card-footer class="total">Total Items: {{todoList.length}}</mat-card-footer>
+</mat-card>
