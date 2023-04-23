@@ -1,18 +1,21 @@
-<form [formGroup]="loginForm" #loginNgForm="ngForm">
+<div class="container">
+    <div class="row">
+        <form [formGroup]="loginForm" #loginNgForm="ngForm">
 
-    <!-- Email field -->
-    <mat-form-field class="w-full">
-        <mat-label>Email address</mat-label>
-        <input id="email" matInput [formControlName]="'email'">
-        <mat-error *ngIf="loginForm?.get('email')?.hasError('required')">
-            Email address is required
-        </mat-error>
-        <mat-error *ngIf="loginForm?.get('email')?.hasError('email')">
-            Please enter a valid email address
-        </mat-error>
-    </mat-form-field>
-    <!-- Single sign-on buttons -->
-    <div class="action">
-        <button mat-raised-button color="primary" (click)="login()">Login</button>
+            <!-- Email field -->
+            <mat-form-field class="w-full">
+                <mat-label>Email address</mat-label>
+                <input id="email" matInput [formControlName]="'email'">
+                <mat-error *ngIf="loginForm?.get('email')?.hasError('required')">
+                    Email address is required
+                </mat-error>
+                <mat-error *ngIf="loginForm?.get('email')?.hasError('email')">
+                    Please enter a valid email address
+                </mat-error>
+            </mat-form-field>
+            <div class="action">
+                <button mat-raised-button color="primary" (click)="login()">Login</button>
+            </div>
+        </form>
     </div>
-</form>
+</div>

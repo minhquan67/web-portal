@@ -1,0 +1,9 @@
+.menu-toolbar {
+    display: flex;
+    .menu-box {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        cursor: pointer;
+    }
+}
